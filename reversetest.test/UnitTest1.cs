@@ -15,14 +15,15 @@ public class UnitTest1
         Assert.Equal("today cold is It".ToCharArray(), chars);
     }
 
-    [Fact]
-    public void WordShouldReverse()
+    [Theory]
+    [InlineData("wolters", "sretlow")]
+    [InlineData("whodunit", "tinudohw")]
+    public void WordShouldReverse(string value, string expected)
     {
-        string word = "wolters";
-        char[] chars = word.ToCharArray();
+        char[] chars = value.ToCharArray();
 
         ReverseTest.ReverseWord(ref chars);
 
-        Assert.Equal("sretlow".ToCharArray(), chars);
+        Assert.Equal(expected.ToCharArray(), chars);
     }
 }
