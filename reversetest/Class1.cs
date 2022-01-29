@@ -20,28 +20,29 @@ public static class ReverseTest
         ReverseWord(ref phrase);
 
         // Find and reverse each word within the array
-        for (int i = 0; i < phrase.Length; i++)
+        for (int start = 0; start < phrase.Length; start++)
         {
-            if (phrase[i] == ' ')
+            if (phrase[start] == ' ')
                 continue;
 
-            for (int j = i; j < phrase.Length; j++)
+            for (int end = start; end < phrase.Length; end++)
             {
-                if (phrase[j] == ' ' || j == phrase.Length - 1)
+                if (phrase[end] == ' ' || end == phrase.Length - 1)
                 {
-                    if (j == phrase.Length - 1)
+                    if (end == phrase.Length - 1)
                     {
-                        j++;
+                        end++;
                     }
                     // perform swap
-                    for (int k = 0; k < (j - i) / 2; k++)
+                    // alternative code Array.Reverse(phrase,i,(j-i))
+                    for (int i = 0; i < (end - start) / 2; i++)
                     {
-                        char temp = phrase[k + i];
-                        phrase[k + i] = phrase[j - 1 - k];
-                        phrase[j - 1 - k] = temp;
+                        char temp = phrase[i + start];
+                        phrase[i + start] = phrase[end - 1 - i];
+                        phrase[end - 1 - i] = temp;
                     }
 
-                    i = j;
+                    start = end;
                     break;
                 }
             }
