@@ -16,6 +16,8 @@ public static class ReverseTest
 
     public static void ReversePhrase(ref char[] phrase)
     {
+        // inspiration for the initial reverse from: https://www.educative.io/edpresso/how-to-reverse-the-order-of-words-in-a-sentence
+
         // flip the whole array
         ReverseWord(ref phrase);
 
